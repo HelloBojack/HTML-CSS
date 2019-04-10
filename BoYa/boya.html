@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>博雅互动</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            font: 14px "Arial", "Microsoft Yahei", "SimSun";
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .inner_c {
+            width: 1000px;
+            margin: 0 auto;
+        }
+
+        .nopadding {
+            padding: 0 !important;
+        }
+
+        .nomar {
+            margin: 0 !important;
+        }
+
+        /* header start*/
+        .header {
+            width: 100%;
+            height: 60px;
+            background-color: #191D3A;
+        }
+
+        .inner_c .logo {
+            padding-top: 10px;
+            padding-left: 20px;
+            float: left;
+            margin-right: 47px;
+        }
+
+        .inner_c h1 {
+            width: 157px;
+            height: 35px;
+            background: url(images/logo.png) no-repeat;
+            text-indent: -999em;
+            overflow: hidden;
+        }
+
+        .inner_c h1 a {
+            display: block;
+        }
+
+        .inner_c .nav {
+            /* margin-left: 47px; */
+            width: 604px;
+            height: 60px;
+            float: left;
+
+        }
+
+        .inner_c .nav li {
+            float: left;
+            width: 85px;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+        }
+
+        .inner_c .nav li a {
+            color: #818496;
+            display: block;
+        }
+
+        .inner_c .nav .current a {
+            background-color: #252947;
+            color: aliceblue;
+        }
+
+        .inner_c .nav a:hover {
+            color: aliceblue;
+        }
+
+        .inner_c .join {
+            float: right;
+            padding-right: 20px;
+            padding-top: 12px;
+        }
+
+        .inner_c .join a {
+            display: block;
+            text-align: center;
+            background-color: #38B774;
+            width: 100px;
+            height: 35px;
+            line-height: 35px;
+            color: aliceblue;
+            border: 1px solid #38B774;
+            border-radius: 5px;
+        }
+
+        .inner_c .join a:hover {
+            background-color: aliceblue;
+            color: #38B774;
+        }
+
+        /* header end*/
+        .bar {
+            height: 460px;
+            background: url(images/banner1.jpg) no-repeat center top;
+            background-color: #61C5E9;
+            position: relative;
+        }
+
+        .bar ol {
+            width: 93px;
+            overflow: hidden;
+            margin-left: -47px;
+            position: absolute;
+            left: 50%;
+            bottom: 20px
+        }
+
+        .bar ol li {
+            float: left;
+            width: 10px;
+            height: 10px;
+            background-color: #fff;
+            border: 1px solid #fff;
+            opacity: 0.5;
+            border-radius: 6px;
+            margin-right: 15px;
+        }
+
+        .bar ol li.current {
+            opacity: 1;
+        }
+
+        /* bar start */
+
+        /* product */
+        .product {
+            padding-top: 50px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #DBE1E7;
+            position: relative;
+        }
+
+        .product ul {
+            overflow: hidden;
+        }
+
+        .product ul li {
+            float: left;
+            padding-right: 43px;
+
+        }
+
+        .product ul li span {
+            display: block;
+        }
+
+        .product .ch {
+            color: #6C4866;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .product .en {
+            color: #38B774;
+            text-align: center;
+            height: 30px;
+            line-height: 30px;
+        }
+
+        .product .en b {
+            font-weight: normal;
+            padding-right: 10px;
+            background: url(images/arrow.png) no-repeat right center;
+        }
+
+        .product a {
+            display: block;
+            padding-bottom: 5px;
+        }
+
+        .product a:hover {
+            background-color: #38B774;
+        }
+
+        .product a:hover .en,
+        .product a:hover .ch {
+            color: aliceblue;
+        }
+
+        .product a:hover .en b {
+            background: url(images/arrow2.png) no-repeat right center;
+        }
+
+        .product ol {
+            width: 120px;
+            overflow: hidden;
+            background-color: #fff;
+            position: absolute;
+            margin-left: -60px;
+            left: 50%;
+            bottom: -5px;
+        }
+
+        .product ol li {
+            width: 8px;
+            height: 8px;
+            background-color: #B5C0CB;
+            border: 1px solid #B5C0CB;
+            border-radius: 4px;
+            float: left;
+            margin-right: 15px;
+        }
+
+        .product ol li.first {
+            margin-left: 15px;
+        }
+
+        .product ol li.current {
+            background-color: #2FBC71;
+            border: 1px solid #2FBC71;
+        }
+
+        /* product */
+        /* news_jobs */
+        .n_j_bg {
+            background:url(images/mountain.jpg) no-repeat top center;
+        }
+        .news_jobs {
+            height: 400px;
+            padding-top: 50px;
+        }
+
+        .news_jobs .news {
+            padding-top: 45px;
+            width: 500px;
+            float: left;
+            position: relative;
+        }
+
+        .news_jobs .news_logo {
+            padding-left: 20px;
+            border-bottom: 1px solid #E0E1E5;
+        }
+
+        .news_jobs .news h3 {
+            width: 183px;
+            height: 48px;
+            padding-bottom: 30px;
+            background: url(images/news_logo.png) no-repeat center top;
+        }
+
+        .news_jobs .news h3 a {
+            display: block;
+            height: 100%;
+        }
+
+        .news_jobs .news ul,
+        .news_jobs .jobs_list {
+            padding: 0 20px;
+            overflow: hidden;
+        }
+
+        .news_jobs .data {
+            color: #E0E1E5;
+            padding-right: 20px;
+        }
+
+        .news_jobs .news li {
+            float: left;
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            border-bottom: 1px solid #E0E1E5;
+        }
+
+        .news_jobs .news li p {
+            display: inline;
+        }
+
+        .news_jobs .news li a {
+            color: #444866;
+        }
+        .news_jobs .news li a:hover {
+            color: #33B972;
+        }
+
+        .news_jobs .jobs {
+            width: 500px;
+            float: left;
+            height: 300px;
+            padding-top: 40px;
+            background: url(images/jobs.jpg) no-repeat center top;
+            position: relative;
+        }
+
+        .news_jobs .jobs_logo {
+            padding-left: 15px;
+        }
+
+        .news_jobs .jobs h3 {
+            width: 183px;
+            height: 48px;
+            padding-bottom: 30px;
+            background: url(images/jobs_logo.png) no-repeat center top;
+        }
+
+        .news_jobs .jobs h3 a {
+            display: block;
+            height: 100%;
+        }
+
+        .news_jobs .jobs ul {
+            width: 300px;
+        }
+
+        .news_jobs .jobs ul li {
+            height: 35px;
+            line-height: 35px;
+            border-bottom: 1px solid #6FDEA3;
+        }
+
+        .news_jobs .jobs p {
+            font-weight: 600;
+        }
+
+        .news_jobs .jobs a,
+        .news_jobs .jobs p {
+            color: #fff;
+        }
+
+        .news_jobs .jobs a {
+            height: 35px;
+            line-height: 35px;
+        }
+
+        .news_jobs .more {
+            position: absolute;
+            width: 55px;
+            height: 25px;
+            left: 220px;
+            top: 45px;
+            border: 1px solid #fff;
+            border-radius: 5px;
+            padding-left: 10px;
+        }
+
+        .news_jobs .jobs .more {
+            left: 210px;
+        }
+
+        .news_jobs .more a {
+            height: 25px;
+            display: block;
+            width: 100%;
+            line-height: 25px;
+        }
+
+        .news_jobs .more sup {
+            position: absolute;
+            top: 0;
+            right: 3px;
+        }
+
+        .news_jobs .news .more {
+            color: #33B972;
+            border-color: #33B972;
+        }
+
+        .news_jobs .news .more a {
+            color: #33B972;
+        }
+
+        .news_jobs .news .more:hover {
+            background-color: #33B972;
+        }
+
+        .news_jobs .news .more:hover a,
+        .news_jobs .news .more:hover sup {
+            color: #fff;
+        }
+
+        .news_jobs .jobs .more {
+            color: #fff;
+        }
+
+        .news_jobs .jobs .more:hover {
+            background-color: #fff;
+        }
+
+        .news_jobs .jobs .more:hover a,
+        .news_jobs .jobs .more:hover sup {
+            color: #33B972;
+        }
+
+        /* news_jobs */
+        /* footer */
+        .footer {
+            height: 90px;
+            width: 100%;
+            background: #191D3A;
+            font-size: 12px;
+            color: #526159;
+        }
+
+        .footer .inner_c {
+            line-height: 90px;
+        }
+
+        .footer .inner_c a:hover {
+            color: #fff;
+        }
+
+        .footer .inner_c ul,
+        .footer .inner_c li {
+            color: #526159;
+            float: left;
+        }
+
+        .footer .inner_c li a {
+            color: #526159;
+        }
+
+        .footer .inner_c .copy {
+            float: left;
+            margin-left: 170px;
+        }
+
+        .footer .inner_c .copy p,
+        .footer .inner_c .copy a,
+        .footer .inner_c .license p,
+        .footer .inner_c .license a {
+            float: left;
+            color: #526159;
+        }
+
+        .footer .inner_c .copy a:hover {
+            color: #fff;
+        }
+
+        .footer .inner_c .license {
+            height: 90px;
+            float: right;
+        }
+
+        .footer .inner_c .license a {
+            display: block;
+            width: 35px;
+            height: 50px;
+            margin-top: 20px;
+            border: 1px solid transparent;
+        }
+
+        .footer .inner_c .license a img {
+            width: 100%;
+            height: 100%;
+
+        }
+
+        .footer .inner_c .license a:hover {
+            border: 1px dotted red;
+        }
+
+        /* footer */
+    </style>
+</head>
+
+<body>
+    <!-- header start -->
+    <div class="header">
+        <div class="inner_c">
+            <div class="logo">
+                <h1><a href="#">博雅互动-最专业的游戏平台</a></h1>
+            </div>
+            <div class="nav">
+                <ul>
+                    <li class="current"><a href="#">首页</a></li>
+                    <li><a href="#">博雅游戏</a></li>
+                    <li><a href="#">博雅新闻</a></li>
+                    <li><a href="#">关于我们</a></li>
+                    <li><a href="#">客服中心</a></li>
+                    <li><a href="#">投资者管理</a></li>
+                    <li><a href="#">校园大使</a></li>
+                </ul>
+            </div>
+            <div class="join">
+                <a href="#">加入我们</a>
+            </div>
+        </div>
+    </div>
+    <!-- header end -->
+
+    <!-- bar start -->
+    <div class="bar">
+        <ol>
+            <li class="current"><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li class="nomar"><a href="#"></a></li>
+        </ol>
+    </div>
+    <!-- bar end -->
+
+    <!-- product -->
+    <div class="product inner_c">
+        <ul>
+            <li>
+                <a href="#">
+                    <img src="images/pro1.png" alt="">
+                    <span class="ch">四川麻将</span>
+                    <span class="en">
+                        <b>SICHUAN MAHJONG</b>
+                    </span>
+                </a>
+
+            </li>
+            <li>
+                <a href="#">
+                    <img src="images/pro2.png" alt="">
+                    <span class="ch">四川棋牌</span>
+                    <span class="en">
+                        <b>BOYA SICHUAN GAME</b>
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="images/pro3.png" alt="">
+                    <span class="ch">二人麻将</span>
+                    <span class="en">
+                        <b>TWO PLAYER MANJONG</b>
+                    </span>
+                </a>
+            </li>
+            <li class="last nopadding">
+                <a href="#">
+                    <img src="images/pro4.png" alt="">
+                    <span class="ch">虫虫特工队</span>
+                    <span class="en">
+                        <b>ANT WARS</b>
+                    </span>
+                </a>
+            </li>
+        </ul>
+        <ol>
+            <li class="current first"><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
+            <li class="nomar"><a href="#"></a></li>
+        </ol>
+    </div>
+    <!-- product -->
+    <!-- news&jobs-->
+    <div class="n_j_bg">
+        <div class="news_jobs inner_c">
+            <div class="news">
+                <div class="news_logo">
+                    <h3><a href="#"></a></h3>
+                </div>
+                <div class="more">
+                    <a href="#">MORE</a>
+                    <sup>+</sup>
+                </div>
+                <ul>
+                    <li>
+                        <p class="data">01/27</p><a href="#">博雅互动荣获中国融资上市公司大奖之最有潜力上市公司奖</a>
+                    </li>
+                    <li>
+                        <p class="data">12/18</p><a href="#">博雅互动受邀亮相中国移动全球合作伙伴大会</a>
+                    </li>
+                    <li>
+                        <p class="data">11/18</p><a href="#">博雅互动智能电视游戏新品"博雅棋牌"正式发布</a>
+                    </li>
+                    <li>
+                        <p class="data">10/23</p><a href="#">深圳市常委、统战部部长林浩一行莅临博雅互动考察调研</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="jobs">
+                <div class="jobs_logo">
+                    <h3><a href="#"></a></h3>
+                </div>
+                <div class="more">
+                    <a href="#">MORE</a>
+                    <sup>+</sup>
+                </div>
+                <div class="jobs_list">
+                    <p>专场招聘岗位 :</p>
+                    <ul>
+                        <li><a href="#">PHP开发工程师</a></li>
+                        <li><a href="#">C++开发工程师</a></li>
+                        <li><a href="#">WEB开发工程师</a></li>
+                        <li><a href="#">大数据工程师</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- news&jobs-->
+    <!-- footer -->
+    <div class="footer">
+        <div class="inner_c">
+            <div>
+                <ul>
+                    <li><a href="#">网站地图</a></li>
+                    <li>&nbsp;丨&nbsp;</li>
+                    <li><a href="#">免责声明</a></li>
+                </ul>
+            </div>
+            <div class="copy">
+                <p>Copyright © 2004 - 2019 博雅互动(Boyaa Interactive)&nbsp;&nbsp;</p>
+                <a href="#">粤ICP备05062536号</a>
+            </div>
+            <div class="license">
+                <p>增值电信业务经营许可证：粤B2-20110513&nbsp;&nbsp;</p>
+                <a href="#"><img src="images/govIcon.gif" alt=""></a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

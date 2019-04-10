@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    .news {
+        overflow: hidden;
+        margin: 100px;
+        width: 310px;
+        height: 200px;
+        border-top: 2px solid #206F96;
+    }
+    li {
+        list-style: none;
+        font-size: 14px;
+    }
+    .hd {
+        overflow: hidden;
+    }
+    .hd li{
+        float: left; 
+        height: 29px;
+        line-height: 29px;
+        text-align: center;
+        width: 102px;
+        border-bottom: 1px solid #CFCFCF;   
+        border-left: 1px solid #CFCFCF;  
+    }
+    li.last {
+        border-right: 1px solid #CFCFCF;        
+    }
+    a {
+        text-decoration: none;
+        color: #252525;
+    }
+    .bd {
+        margin: 20px 0;
+    }
+    .bd li{
+        line-height: 25px;
+        padding-left:10px; 
+    }
+    li.first{
+        font-weight: 600;
+    }
+    </style>
+</head>
+<body>
+    <div class="news">
+        <ul class="hd">
+            <li><a href="#">新闻</a></li>
+            <li><a href="#">图片</a></li>
+            <li class="last"><a href="#">军事 航空</a></li>
+        </ul>
+        <ul class="bd">
+            <li class="first"><a href="#">习近平离京访问捷克并出席核安全峰会</a></li>
+            <li><a href="#">习近平在捷克发文 热议 出访专题 这三年</a></li>
+            <li><a href="#">李克强:亚洲国家较含蓄 更需开放交流 在博鳌</a></li>
+            <li><a href="#">张德江会客 江泽民为《世界名曲45首》作序</a></li>
+            <li><a href="#">酒店枕头下现近万现金 房客怒投诉:没换枕套</a></li>
+        </ul>
+    </div>
+</body>
+</html>
