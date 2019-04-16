@@ -118,13 +118,11 @@
 
         /* header end*/
         .bar {
-            height: 460px;
-            background: url(images/banner1.jpg) no-repeat center top;
-            background-color: #61C5E9;
+            height: 340px;
             position: relative;
         }
 
-        .bar ol {
+        .bar .dot ol {
             width: 93px;
             overflow: hidden;
             margin-left: -47px;
@@ -133,7 +131,7 @@
             bottom: 20px
         }
 
-        .bar ol li {
+        .bar .dot ol li {
             float: left;
             width: 10px;
             height: 10px;
@@ -142,9 +140,11 @@
             opacity: 0.5;
             border-radius: 6px;
             margin-right: 15px;
+            z-index: 999;
+            cursor: pointer;
         }
 
-        .bar ol li.current {
+        .bar .dot ol li.current {
             opacity: 1;
         }
 
@@ -243,8 +243,9 @@
         /* product */
         /* news_jobs */
         .n_j_bg {
-            background:url(images/mountain.jpg) no-repeat top center;
+            background: url(images/mountain.jpg) no-repeat top center;
         }
+
         .news_jobs {
             height: 400px;
             padding-top: 50px;
@@ -300,6 +301,7 @@
         .news_jobs .news li a {
             color: #444866;
         }
+
         .news_jobs .news li a:hover {
             color: #33B972;
         }
@@ -481,6 +483,56 @@
         }
 
         /* footer */
+
+        .bar .carousel {
+            width: 100%;
+            height: 340px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bar .m_unit {
+            width: 1000%;
+            height: 340px;
+            position: absolute;
+            top: 0;
+            left: 0;
+
+        }
+
+        .bar .carousel .m_unit li {
+            float: left;
+        }
+
+        .bar .carousel .leftBtn {
+            position: absolute;
+            display: block;
+            width: 40px;
+            height: 40px;
+            left: 40px;
+            top: 50%;
+            margin-top: -20px;
+            font-size: 40px;
+            line-height: 40px;
+            text-align: center;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .bar .carousel .rightBtn {
+            position: absolute;
+            display: block;
+            width: 40px;
+            height: 40px;
+            right: 40px;
+            top: 50%;
+            margin-top: -20px;
+            font-size: 40px;
+            line-height: 40px;
+            text-align: center;
+            color: #fff;
+            cursor: pointer;
+        }
     </style>
 </head>
 
@@ -511,12 +563,28 @@
 
     <!-- bar start -->
     <div class="bar">
-        <ol>
-            <li class="current"><a href="#"></a></li>
-            <li><a href="#"></a></li>
-            <li><a href="#"></a></li>
-            <li class="nomar"><a href="#"></a></li>
-        </ol>
+        <div class="carousel" id="carousel">
+            <div class="m_unit" id="m_unit">
+                <ul>
+                    <li><a href="#"><img src="images/banner1.jpg" alt="" width="1440px"></a></li>
+                    <li><a href="#"><img src="images/banner2.jpg" alt="" width="1440px"></a></li>
+                    <li><a href="#"><img src="images/banner3.jpg" alt="" width="1440px"></a></li>
+                    <li><a href="#"><img src="images/banner4.jpg" alt="" width="1440px"></a></li>
+                </ul>
+            </div>
+            <div class="btns">
+                <a class="leftBtn" id="leftBtn">&lt;</a>
+                <a class="rightBtn" id="rightBtn">&gt;</a>
+            </div>
+        </div>
+        <div class="dot" id="dot">
+            <ol>
+                <li class="current"><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li class="nomar"><a href="#"></a></li>
+            </ol>
+        </div>
     </div>
     <!-- bar end -->
 
@@ -636,6 +704,103 @@
             </div>
         </div>
     </div>
+
+    <script src="jquery-3.4.0.js"></script>
+    <script>
+        var carousel = document.getElementById("carousel");
+        var carouselUl = carousel.getElementsByTagName("ul")[0];
+        var lis = carousel.getElementsByTagName("li");
+
+        carouselUl.appendChild(lis[0].cloneNode(true));
+
+        var index = 0;
+        var w = 0;
+
+
+
+        $("#dot li").on('click', function () {
+            $(this).addClass('current').siblings("li").removeClass('current');
+            index = $(this).index();
+            w = -index * 1440 + "px";
+            $("#m_unit").animate({
+                left: w
+            }, 1000);
+
+        })
+
+
+        document.getElementById("leftBtn").onclick = function () {
+            var w4 = -4 * 1440 + "px";
+            index--;
+            if (index < 0) {
+                index = 3;
+                $("#m_unit").css("left", w4);
+            }
+
+            $("#dot li").eq(index).addClass('current').siblings("li").removeClass('current');
+
+            w = -index * 1440 + "px";
+            $("#m_unit").animate({
+                left: w
+            }, 1000);
+
+            //console.log(index);
+        }
+        document.getElementById("rightBtn").onclick = function () {
+            index++;
+            w = -index * 1440 + "px";
+            var w0 = 0 + "px";
+
+            if (index == 4) {
+                $("#dot li").eq(0).addClass('current').siblings("li").removeClass('current');
+            } else {
+                $("#dot li").eq(index).addClass('current').siblings("li").removeClass('current');
+            }
+            console.log(index);
+            $("#m_unit").animate({
+                left: w
+            }, 1000, function () {
+                if (index > 3) {
+                    index = 0;
+                    $("#m_unit").css("left", w0);
+                }
+            });
+
+        }
+
+
+
+
+        //自动轮播
+        var timer = setInterval(move, 2000);
+
+        function move() {
+            index++;
+            console.log(index);
+            w = -index * 1440 + "px";
+            var w0 = 0 + "px";
+
+            if (index == 4) {
+                $("#dot li").eq(0).addClass('current').siblings("li").removeClass('current');
+            } else {
+                $("#dot li").eq(index).addClass('current').siblings("li").removeClass('current');
+            }
+            //console.log(index);
+            $("#m_unit").animate({left: w}, 1000, function () {
+                if (index > 3) {
+                    index = 0;
+                    $("#m_unit").css("left", w0);
+                }
+            });
+            
+        }
+
+        $("#m_unit").hover(function () {
+        clearInterval(timer);
+        }, function () {
+        timer = setInterval(move, 2000);
+        });
+    </script>
 </body>
 
 </html>
