@@ -1,0 +1,49 @@
+body {
+    background-color: #ccc;
+}
+.Tai_Chi {
+    margin: 100px auto;
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    position: relative;
+    background: linear-gradient(to right, #ffffff 0%,#ffffff 50%,#000000 51%,#000000 51%,#000000 100%);
+    animation-duration: 3s;
+    animation-timing-function: linear;
+    animation-iteration-count:infinite;
+    animation-name: spin;
+}
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+.Tai_Chi::before {
+    content: "";
+    display: block;
+    width: 250px;
+    height: 250px;
+    background-color: #000000;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 125px;
+    box-sizing: border-box;
+    border: 100px solid #ffffff;
+}
+.Tai_Chi::after {
+    content: "";
+    display: block;
+    width: 250px;
+    height: 250px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 0;
+    left: 125px;
+    box-sizing: border-box;
+    border: 100px solid #000000;
+}
