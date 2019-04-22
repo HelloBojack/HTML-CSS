@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        var arr=[2,43,46,6,57,68,45,66,17,143];
+        var length=arr.length;
+        function selectionSort(arr) {
+            for (var i=0;i<length-1;i++){
+                var  miniIndex=i;
+                for(var j=i+1;j<length;j++){
+                    if (arr[j]<arr[miniIndex]){
+                        miniIndex=j;
+                    }
+                }
+                var temp=arr[i];
+                arr[i]=arr[miniIndex];
+                arr[miniIndex]=temp;
+            }
+            return arr;
+        }
+
+        console.log(selectionSort(arr));
+    </script>
+</head>
+<body>
+
+</body>
+</html>
