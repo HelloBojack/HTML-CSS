@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ShellSort</title>
+    <script>
+        var arr=[43,2,46,6,57,68,45,66,17,143];
+        var len=arr.length;
+
+        function shellSort(arr) {
+            for (var gap=len/2;gap>0;gap/=2){
+                for (var i = 0; i < len-1; i++) {
+                    var key=arr[i];
+                    for (var j=i-1;j>=0&&arr[j]>key;j--){
+                        arr[j+1]=arr[j];
+                    }
+                    arr[j+1]=key;
+                }
+            }
+            return arr;
+        }
+
+        console.log(shellSort(arr));
+    </script>
+</head>
+<body>
+
+</body>
+</html>

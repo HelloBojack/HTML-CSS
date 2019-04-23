@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>InsertionSort</title>
+    <script>
+        var arr=[43,2,46,6,57,68,45,66,17,143];
+        var len=arr.length;
+
+        // function insertionSort(arr){
+        //
+        //     for (var i = 1; i < len-1; i++) {
+        //         var key = arr[i];                           //取前面排完序的第一个数-->key
+        //         if (key<arr[i-1]){                          //如果key小于前一个数，则这个数需要插入到前面
+        //             for (var j=i-1;j>=0&&arr[j]>key;j--){   //从这个数的前一个数开始，向前查找
+        //                 arr[j+1]=arr[j];                    //如果前一个数大于key   则把大的数往后移  arr1 <-arr0
+        //             }                                       //j减减之后，该数小于key 退出循环，这这个数之前的是key应该插入的位置
+        //             arr[j+1]=key;                           //将key插入到合适的位置
+        //         }
+        //     }
+        //     return arr;
+        // }
+
+
+        function insertionSort(arr){
+
+            for (var i = 1; i < len-1 ; i++) {
+                var key = arr[i];
+                for (var j=i-1;j>=0&&arr[j]>key;j--){
+                    arr[j+1]=arr[j];
+                }
+                arr[j+1]=key;
+            }
+
+            return arr;
+        }
+
+        console.log(insertionSort(arr));
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -4,11 +4,15 @@
     <meta charset="UTF-8">
     <title>BubbleSort</title>
     <script>
-        var arr=[2,43,46,6,57,68,45,66,17,143];
-        function bubbleSort_1(arr) {
-            var len =arr.length;
-            for(var i=0;i<len-1;i++){
-                for (var j=0;j<len-1-i;j++){
+        var arr=[43,2,32,6,57,88,9,66,17,143];
+        var len = arr.length;
+
+        //两两对比，疯狂交换，每次最大数会被交换到最后
+
+        function bubbleSort_1(arr){
+
+            for (var i = 0; i < len-1; i++) {      //-1：不超过数组下标
+                for (var j =0;j<len-i-1;j++){      //-i：第i次循环的时候进行排序完，最后i位是最大的,不要继续排序
                     if (arr[j]>arr[j+1]){
                         var temp=arr[j];
                         arr[j]=arr[j+1];
@@ -16,6 +20,7 @@
                     }
                 }
             }
+
             return arr;
         }
 
