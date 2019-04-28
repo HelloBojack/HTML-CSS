@@ -1,0 +1,11 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+#canvas {
+    width: 500px;
+    height: 500px;
+    background: #ccc;
+    margin: 100px auto;
+}
